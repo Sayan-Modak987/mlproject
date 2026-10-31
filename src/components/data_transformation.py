@@ -12,10 +12,11 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 from src.exception import CustomException
 from src.logger import logging
+from src.utils import save_object
 
 @dataclass
 class DataTransformationconfig:
-    preprocessor_obj_file_path = os.path.join("artifacts", "preprocessor.pkl")
+    preprocessor_obj_file_path: str = os.path.join("artifacts", "preprocessor.pkl")
 
 class DataTransformation:
     def __init__(self):
@@ -103,3 +104,4 @@ class DataTransformation:
 
         except Exception as e:
             raise CustomException(e, sys)
+
